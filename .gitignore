@@ -26,3 +26,6 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+# Model-loader ignorables
+model-loader/scripts
