@@ -53,8 +53,8 @@ RestUtil.on('error', function(err) {
 var restOptions = {
     'protocol': 'http',
     'host': argv.host,
-    'authenticationType': 'local',
-    'username': argv.username,
+    'authenticationStrategy': 'local',
+    'username': argv.email,
     'password': argv.password
 };
 RestAPI.createClient(restOptions, function(err, client) {
@@ -90,7 +90,7 @@ var loadUsers = function(client, users, callback, _createdUsers) {
     }
 
     var user = users.pop();
-    client.user.create(user.email, user.password, user.displayName, user.email, {}, function(err, createdUser) {
+    client.user.createUser(user.displayName, user.email, user.password, {}, function(err, createdUser) {
         if (err) {
             console.log(err);
 
